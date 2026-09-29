@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://foxymedia.io/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://foxymedia.io/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/services.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/verticals.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/advertisers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/publishers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/careers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/contact.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/privacy.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://foxymedia.io/terms.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>
