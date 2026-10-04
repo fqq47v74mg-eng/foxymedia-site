@@ -25,6 +25,16 @@
     });
     window.addEventListener('resize', syncNav);
     syncNav();
+
+    /* Close nav on mobile when any link is tapped */
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (link) {
+      link.addEventListener('click', function () {
+        if (isMobile()) {
+          toggle.setAttribute('aria-expanded', 'false');
+          syncNav();
+        }
+      });
+    });
   }
 
   /* ---- Current year in the footer --------------------------------------- */
