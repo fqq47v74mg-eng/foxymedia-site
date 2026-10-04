@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- FoxyMedia icon — geometric fox mark — handcrafted SVG -->
+
+  <!-- Left ear outer -->
+  <polygon points="8,54 24,6 40,50" fill="#FF5F00"/>
+  <!-- Left ear inner shadow -->
+  <polygon points="15,51 24,16 33,48" fill="#C44200"/>
+
+  <!-- Right ear outer -->
+  <polygon points="60,50 76,6 92,54" fill="#FF5F00"/>
+  <!-- Right ear inner shadow -->
+  <polygon points="67,48 76,16 85,51" fill="#C44200"/>
+
+  <!-- Main face: wide at ear-base, points to chin -->
+  <path d="M8,54 L18,74 L34,86 L50,92 L66,86 L82,74 L92,54 L72,44 L50,40 L28,44 Z" fill="#FF5F00"/>
+
+  <!-- Left cheek (warm highlight) -->
+  <path d="M8,54 L18,74 L34,68 L28,54 Z" fill="#FF8A30"/>
+
+  <!-- Right cheek (warm highlight) -->
+  <path d="M92,54 L82,74 L66,68 L72,54 Z" fill="#FF8A30"/>
+
+  <!-- Muzzle area (light cream) -->
+  <path d="M36,66 L50,70 L64,66 L58,84 L50,90 L42,84 Z" fill="#FFD4A0"/>
+
+  <!-- Left eye -->
+  <circle cx="32" cy="58" r="6" fill="#1A0800"/>
+  <circle cx="34" cy="56" r="2.2" fill="#ffffff"/>
+
+  <!-- Right eye -->
+  <circle cx="68" cy="58" r="6" fill="#1A0800"/>
+  <circle cx="70" cy="56" r="2.2" fill="#ffffff"/>
+
+  <!-- Nose -->
+  <path d="M46,80 L50,87 L54,80 Z" fill="#4A2000"/>
+</svg>

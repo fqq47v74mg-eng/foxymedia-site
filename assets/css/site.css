@@ -1002,3 +1002,10 @@ p { margin: 0; }
 }
 
 .foot .brand__name { color: #fff; }
+
+/* SVG icon override — crisp at any size */
+.brand__mark[src$=".svg"] {
+  border-radius: 0 !important;
+  background: none;
+  object-fit: contain;
+}
