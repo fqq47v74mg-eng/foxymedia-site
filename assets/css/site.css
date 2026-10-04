@@ -982,3 +982,23 @@ p { margin: 0; }
   .foot__legal { margin-left: 0; }
   .foot__bar { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
+
+/* ==========================================================================
+   Logo refresh — icon + wordmark
+   ========================================================================== */
+.brand__mark {
+  height: 36px !important;
+  width: 36px !important;
+  border-radius: var(--r-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Footer: invert icon to work on dark bg */
+.foot .brand__mark {
+  filter: brightness(0) invert(1);
+  opacity: .7;
+  border-radius: 0;
+}
+
+.foot .brand__name { color: #fff; }
