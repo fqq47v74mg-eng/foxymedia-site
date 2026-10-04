@@ -1,29 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <!--
-    FoxyMedia — star-fox mark v4
-    Warm cream side flanks (the "star points")
-    Orange central face + pointed ears + chin
-    Darker inner ear accents
-    Fierce narrow angled dark eyes + nose
+    FoxyMedia — star-fox mark v5
+    Star silhouette: orange face+ears+chin, cream side flanks
+    Separated fierce eyes, subtle inner ear accents, small nose
   -->
 
-  <!-- Cream side flanks — horizontal star points -->
+  <!-- Cream side flanks -->
   <polygon points="33,47 2,54 35,73" fill="#FFE2C0"/>
   <polygon points="67,47 65,73 98,54" fill="#FFE2C0"/>
 
-  <!-- Main orange body: face + ears + pointed chin -->
+  <!-- Main orange body -->
   <path d="M33,47 L28,5 L50,27 L72,5 L67,47 L65,73 L50,97 L35,73 Z"
         fill="#FF5F00"/>
 
-  <!-- Inner ear accents (deeper orange) -->
-  <polygon points="36,44 30,11 48,40" fill="#C44200"/>
-  <polygon points="52,40 70,11 64,44" fill="#C44200"/>
+  <!-- Inner ear accents (smaller, deeper orange) -->
+  <polygon points="37,43 31,13 46,40" fill="#B83A00"/>
+  <polygon points="54,40 69,13 63,43" fill="#B83A00"/>
 
-  <!-- Left eye — narrow fierce angled slit -->
-  <polygon points="35,58 49,53 51,61 37,64" fill="#0E0E1C"/>
+  <!-- Left eye — narrow fierce slit, separated from right -->
+  <polygon points="33,57 44,52 46,60 35,63" fill="#0E0E1C"/>
 
-  <!-- Right eye — mirror -->
-  <polygon points="49,53 63,58 63,64 49,61" fill="#0E0E1C"/>
+  <!-- Right eye — mirror, separated -->
+  <polygon points="54,52 65,57 65,63 54,60" fill="#0E0E1C"/>
 
   <!-- Nose -->
   <polygon points="46,89 50,97 54,89" fill="#0E0E1C"/>
