@@ -1126,3 +1126,235 @@ p { margin: 0; }
   border-width: 1.5px;
 }
 .btn--onink:hover { --btn-bd: rgba(255,255,255,.72); }
+
+/* ==========================================================================
+   Visual Improvement Pass v3.1 — Hero · Stats · Cards · Marquee · Steps
+   ========================================================================== */
+
+/* ── K. Typography: expanded display headings ── */
+.h-xl { font-stretch: 120%; }
+.h-lg { font-stretch: 110%; }
+
+/* ── A. Hero: richer ambient glow + noise texture ── */
+.hero::before {
+  background:
+    radial-gradient(ellipse 65% 70% at 95% 100%, rgba(255,95,0,.28) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 5%  85%, rgba(255,95,0,.13) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 30% at 50%  0%, rgba(80,60,200,.1)  0%, transparent 55%),
+    radial-gradient(ellipse 30% 22% at 20% 20%, rgba(255,120,0,.06) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* ── A. Hero: shimmer line at section bottom ── */
+.hero__in { position: relative; }
+.hero__in::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -8%;
+  right: -8%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,95,0,.55) 35%,
+    rgba(255,160,40,.9) 50%,
+    rgba(255,95,0,.55) 65%,
+    transparent 100%
+  );
+  animation: hero-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes hero-shimmer {
+  0%, 100% { opacity: .25; transform: scaleX(.55); }
+  50%       { opacity: 1;   transform: scaleX(1);   }
+}
+
+/* ── A. Hero accent: gradient text on "attention." ── */
+.hero__accent {
+  background: linear-gradient(135deg, #fff 45%, rgba(255,120,40,.9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline;
+}
+
+/* ── B. Stats: bigger numbers + orange glow ── */
+.stat__n {
+  font-size: clamp(42px, 5.5vw, 68px);
+  text-shadow: 0 0 40px rgba(255,95,0,.3);
+}
+
+/* ── B. Stats cells: faint gradient wash ── */
+.section--ink .stats > div {
+  background: linear-gradient(180deg, rgba(255,95,0,.05) 0%, transparent 70%);
+}
+
+/* ── C. Cards: enhanced inset shadow highlight on top edge ── */
+.card:hover {
+  box-shadow: var(--shadow-lg), 0 -3px 0 0 rgba(255,95,0,.7) inset;
+}
+
+/* ── D. Logowall: marquee container ── */
+.logowall {
+  display: block !important;
+  grid-template-columns: unset !important;
+  gap: unset !important;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--paper);
+}
+.logowall__track {
+  display: flex;
+  width: max-content;
+  animation: logowall-marquee 22s linear infinite;
+}
+.logowall__track:hover { animation-play-state: paused; }
+.logowall__track > div {
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 40px;
+  min-height: 96px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  transition: background .18s ease;
+}
+.logowall__track > div:hover { background: var(--paper-alt); }
+.logowall__track svg {
+  width: 130px;
+  max-width: 130px;
+  height: 26px;
+  color: var(--ink-3);
+  opacity: .72;
+  transition: color .2s ease, opacity .2s ease;
+}
+.logowall__track > div:hover svg { color: var(--ink); opacity: 1; }
+
+@keyframes logowall-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Disable marquee override from mobile media queries */
+@media (max-width: 900px) { .logowall { grid-template-columns: unset !important; } }
+@media (max-width: 520px) {
+  .logowall { grid-template-columns: unset !important; }
+  .logowall__track > div { padding: 22px 28px; min-height: 72px; }
+  .logowall__track svg { width: 100px; max-width: 100px; }
+}
+
+/* ── E. Arrow-links: animated gradient underline from left ── */
+.arrow-link {
+  border-bottom: none;
+  padding-bottom: 4px;
+  background-image: linear-gradient(var(--orange), var(--orange));
+  background-repeat: no-repeat;
+  background-position: left bottom 0px;
+  background-size: 0% 2px;
+  transition: background-size .24s ease, gap .18s ease, color .18s ease;
+}
+.arrow-link:hover {
+  background-size: 100% 2px;
+  color: var(--orange-hover);
+}
+/* Keep underline visible on card--ink dark bg */
+.card--ink .arrow-link {
+  background-image: linear-gradient(var(--orange), var(--orange));
+}
+
+/* ── F. Steps: left orange timeline accent ── */
+.steps {
+  border-left: 2px solid var(--orange-mid);
+  padding-left: 0;
+  margin-left: 12px;
+}
+.step { padding-left: 20px; }
+.step__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,95,0,.08);
+  border: 1px solid rgba(255,95,0,.18);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 10px;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+
+/* ── G. Verticals: translate micro-interaction ── */
+.vert {
+  transition: background .2s ease, border-left-color .2s ease, transform .22s ease;
+}
+.vert:hover {
+  transform: translateX(4px);
+}
+
+/* ── H. CTA headline punch ── */
+.cta h2 { font-stretch: 115%; }
+
+/* ── I. Eyebrow bar: wider accent line ── */
+.eyebrow::before { width: 32px; }
+
+/* ── J. Nav CTA: subtle attention pulse ── */
+.hdr__cta {
+  animation: hdr-cta-pulse 4s ease-in-out infinite;
+}
+@keyframes hdr-cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(255,95,0,0);    }
+  50%       { box-shadow: 0 0 0 6px rgba(255,95,0,.18); }
+}
+
+/* ── Respect reduced-motion for all new animations ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero__in::after,
+  .logowall__track,
+  .hdr__cta {
+    animation: none !important;
+  }
+  .arrow-link { background-size: 100% 2px !important; }
+}
+
+/* ==========================================================================
+   Visual Pass v3.1 — Refinement fixes
+   ========================================================================== */
+
+/* ── F2. Steps timeline: stronger orange line + dot on step number ── */
+.steps {
+  border-left: 2px solid rgba(255,95,0,.35);
+  margin-left: 16px;
+}
+.step {
+  padding-left: 24px;
+  position: relative;
+}
+/* Orange connector dot on the left timeline */
+.step::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 36px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255,95,0,.15);
+}
+
+/* ── A2. Hero gradient text — slightly stronger orange end-stop ── */
+.hero__accent {
+  background: linear-gradient(140deg, #fff 40%, rgba(255,110,30,.95) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ── D2. Logowall — edge fade masks for marquee feel ── */
+.logowall {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
