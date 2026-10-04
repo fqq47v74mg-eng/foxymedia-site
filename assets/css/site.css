@@ -1009,3 +1009,120 @@ p { margin: 0; }
   background: none;
   object-fit: contain;
 }
+
+/* ==========================================================================
+   QA Refinement Pass — Oct 2026
+   Desktop + mobile polish
+   ========================================================================== */
+
+/* ── 1. Quote section: prevent quote-mark glyph colliding with eyebrow ── */
+.quote { gap: 16px; }
+.quote blockquote::before {
+  font-size: 3.6em;
+  line-height: .28;
+  margin-bottom: .32em;
+  opacity: .42;
+}
+
+/* ── 2. Button height unification ── */
+.btn--flame { font-size: 14px; }   /* was 14.5px; equalises height with btn--ghost */
+
+/* ── 3. Footer contrast uplift ── */
+.foot h4             { color: rgba(255,255,255,.44); }  /* was .28 */
+.foot__about         { color: rgba(255,255,255,.46); }  /* was .34 */
+.foot a              { color: rgba(255,255,255,.64); }  /* was .52 */
+.foot__bar           { color: rgba(255,255,255,.40); }  /* was .28 */
+.foot__bar a         { color: rgba(255,255,255,.50); }  /* was .36 */
+
+/* ── 4. CTA gradient — smoother, no blotch ── */
+.cta::before {
+  width: 900px; height: 900px;
+  background: radial-gradient(ellipse at center, rgba(255,95,0,.24) 0%, transparent 68%);
+}
+.cta::after {
+  width: 520px; height: 520px;
+  background: radial-gradient(ellipse at center, rgba(255,95,0,.11) 0%, transparent 68%);
+}
+
+/* ── 5. Stats label — tighter line-height to reduce uneven wrapping ── */
+.stat__l { line-height: 1.4; }
+
+/* ── 6. Verticals key — slight size bump for legibility ── */
+.vert__k { font-size: 11px; letter-spacing: .14em; }
+
+/* ── 7. Flow / network table: GEO column — improve contrast ── */
+.flow__geo                  { color: rgba(255,255,255,.52); }  /* was .4 */
+.flow__row--head            { }  /* already handled above */
+.flow__foot                 { color: rgba(255,255,255,.32); }  /* was .25 */
+
+/* ── 8. Section--ink quote attribution — improve contrast ── */
+.quote figcaption { color: rgba(255,255,255,.52); }  /* was .36 */
+
+/* ── 9. Arrow-link: wider tap target on mobile ── */
+@media (max-width: 760px) {
+  .arrow-link { padding-block: 10px; }
+}
+
+/* ── 10. Hero CTAs — stack full-width at 640px (not just 480px) ── */
+@media (max-width: 640px) {
+  .hero .btn-row              { flex-direction: column; align-items: stretch; }
+  .hero .btn-row .btn         { justify-content: center; width: 100%; }
+  .cta .btn-row               { flex-direction: column; }
+  .cta .btn-row .btn          { justify-content: center; }
+}
+
+/* ── 11. Logowall — trim oversized cells on mobile ── */
+@media (max-width: 520px) {
+  .logowall > div { padding: 20px 12px; min-height: 68px; }
+}
+
+/* ── 12. Spec / code block — scrollable + smaller type on mobile ── */
+@media (max-width: 640px) {
+  .spec {
+    font-size: 11.5px;
+    padding: 18px 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .spec pre, .spec code { white-space: pre; }
+}
+
+/* ── 13. Steps — consistent column alignment on mid-size screens ── */
+@media (max-width: 900px) {
+  .step { gap: 18px; }
+}
+
+/* ── 14. Hero meta — tighten to avoid uneven wrap ── */
+@media (max-width: 480px) {
+  .hero__meta { font-size: 10px; gap: 5px 14px; }
+}
+
+/* ── 15. Eyebrow to heading gap — consistent across all sections ── */
+.head-block .eyebrow { margin-bottom: 4px; }
+.phead__in .eyebrow { margin-bottom: 4px; }
+
+/* ── 16. Flow table — improved contrast for GEO on light context ── */
+.section--warm .flow__geo,
+.section .flow__geo { color: var(--ink-2); }
+
+/* ── 17. Quote eyebrow inside dark section — ensure z-order ── */
+.section--ink .quote .eyebrow { position: relative; z-index: 1; }
+
+/* ── 18. CTA section: support-copy contrast uplift ── */
+.cta p { color: rgba(255,255,255,.58); }   /* was .5 */
+
+/* ── 19. Logowall text — improve brand name readability ── */
+.logowall svg { opacity: .72; }   /* was .6 */
+
+/* ── QA Pass 2: footer + CTA ghost border + address ── */
+.foot a              { color: rgba(255,255,255,.70); }
+.foot h4             { color: rgba(255,255,255,.52); }
+.foot__bar           { color: rgba(255,255,255,.48); }
+.foot__bar a         { color: rgba(255,255,255,.56); }
+.foot__about         { color: rgba(255,255,255,.52); max-width: 34ch; }
+
+/* Ghost button on dark CTA — stronger border */
+.btn--onink {
+  --btn-bd: rgba(255,255,255,.36);
+  border-width: 1.5px;
+}
+.btn--onink:hover { --btn-bd: rgba(255,255,255,.72); }
