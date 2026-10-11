@@ -42,44 +42,36 @@
     el.textContent = String(new Date().getFullYear());
   });
 
-  /* ---- Hero performance board -------------------------------------------
-     Demo figures that drift slightly so the board reads as live. Replace the
-     rows with a feed from the platform when the API is wired up.
-  ------------------------------------------------------------------------ */
-  var board = document.querySelector('[data-board]');
-  if (board && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var cells = board.querySelectorAll('[data-metric]');
-    setInterval(function () {
-      var cell = cells[Math.floor(Math.random() * cells.length)];
-      if (!cell) return;
-      var value = parseFloat(cell.getAttribute('data-metric'));
-      var drift = (Math.random() - 0.42) * (value * 0.03);
-      var next = Math.max(0, value + drift);
-      cell.setAttribute('data-metric', String(next));
-      cell.textContent = cell.getAttribute('data-prefix') === '1'
-        ? '$' + next.toFixed(2)
-        : Math.round(next).toLocaleString('en-GB');
-      var delta = cell.parentElement.querySelector('.flow__delta');
-      if (delta) {
-        var pct = (drift / value) * 100;
-        delta.textContent = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%';
-        delta.setAttribute('data-dir', pct >= 0 ? 'up' : 'down');
-      }
-    }, 2200);
-  }
-
   /* ---- Contact form ------------------------------------------------------
-     Front-end validation plus a success state. Point `action` at your CRM,
-     form endpoint or serverless handler to make it live.
+     Posts to the endpoint in the form's `action` (Formspree) without leaving
+     the page, then swaps the form for the success note.
   ------------------------------------------------------------------------ */
   Array.prototype.forEach.call(document.querySelectorAll('[data-form]'), function (form) {
     form.addEventListener('submit', function (event) {
-      if (form.getAttribute('action')) return; // real endpoint configured
       event.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
+      var btn = form.querySelector('[type=submit]');
       var ok = form.parentElement.querySelector('[data-form-ok]');
-      form.hidden = true;
-      if (ok) { ok.hidden = false; ok.focus(); }
+      var err = form.querySelector('[data-form-err]');
+      var label = btn ? btn.innerHTML : '';
+      function done() { form.hidden = true; if (ok) { ok.hidden = false; ok.focus(); } }
+      function fail(msg) {
+        if (btn) { btn.disabled = false; btn.innerHTML = label; }
+        if (err) { err.textContent = msg; err.hidden = false; }
+      }
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+      if (err) err.hidden = true;
+      var endpoint = form.getAttribute('action');
+      if (!endpoint) { done(); return; }
+      fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (res) {
+          if (res.ok) { done(); return; }
+          return res.json().catch(function () { return {}; }).then(function (json) {
+            var msg = (json.errors || []).map(function (x) { return x.message; }).join(', ');
+            fail((msg || 'Something went wrong') + ' \u2014 please try again or email hello@foxymedia.io.');
+          });
+        })
+        .catch(function () { fail('Network error \u2014 please try again or email hello@foxymedia.io.'); });
     });
   });
 })();

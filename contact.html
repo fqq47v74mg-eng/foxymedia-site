@@ -51,7 +51,10 @@
         <p class="eyebrow">Send a brief</p>
         <h2 class="h-md">Tell us what you need.</h2>
       </div>
-      <form class="form mt-md" data-form novalidate>
+      <form class="form mt-md" data-form novalidate action="https://formspree.io/f/xwkgpvnq" method="POST">
+        <input type="hidden" name="_subject" value="FoxyMedia website enquiry">
+        <input type="hidden" name="source" value="foxymedia.io">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
         <div class="field-row">
           <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" required></div>
@@ -87,6 +90,7 @@
         </div>
         <div class="field"><label for="message">The brief</label><textarea id="message" name="message" placeholder="Target event, current cost per event, licence and any hard constraints." required></textarea></div>
         <p class="form__note">We use what you send to respond to your enquiry and for nothing else. See our <a href="privacy.html">privacy policy</a>.</p>
+        <p class="form__err" data-form-err hidden role="alert"></p>
         <div class="btn-row"><button class="btn btn--flame" type="submit">Send brief <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
       </form>
       <div class="form__ok" data-form-ok hidden tabindex="-1">
