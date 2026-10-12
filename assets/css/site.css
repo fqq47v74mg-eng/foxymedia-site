@@ -9,7 +9,7 @@
   --surface: #FFFFFF;
   --ink:     #141413;
   --ink-2:   #4B4A47;
-  --ink-3:   #8B8984;
+  --ink-3:   #6B6964;
   --line:    #E6E1DA;
   --line-2:  #D3CDC4;
 
@@ -213,7 +213,7 @@ p { margin: 0; }
 .chain__node--core .chain__k { color: #fff; font-size: 21px; }
 .chain__node--core b { color: rgba(255,255,255,.65); }
 .chain__node--core img { margin-bottom: 6px; }
-.hero__accent { color: var(--orange); }
+.hero__accent { color: #E65300; }
 .hero .btn-row { margin-top: 12px; }
 .hero__meta {
   display: flex; flex-wrap: wrap; gap: 10px 36px;

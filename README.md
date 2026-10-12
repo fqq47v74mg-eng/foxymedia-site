@@ -49,5 +49,8 @@ endpoint or CRM webhook.
 |---|---|
 | `index.html` | Numbers band (40+ GEOs, 13 verticals, 14 languages, Net-15) — confirm these stay accurate |
 | `about.html` | Team section lists functions only, no names — by design |
+| `publishers.html` | Payout wording now reads "paid within 15 days of each cycle closing" — confirm it matches your publisher terms |
+| `advertisers.html` | "Unexplained rejections are treated as approved" is a contractual promise — make sure IOs say the same |
+| `verticals.html` | Regulated-category copy (FX, insurance, pharma, legal, iGaming) — worth a compliance read before launch |
 | `careers.html` | Open roles — link each to your ATS (they currently go to the contact form) |
 | `contact.html`, footer | Registered office address |
