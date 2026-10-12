@@ -47,7 +47,7 @@ endpoint or CRM webhook.
 
 | Where | What |
 |---|---|
-| `index.html`, `about.html` | Stat figures (€50M+ deposits, 50K+ FTDs, 40+ GEOs) — confirm or soften |
-| `about.html` | Leadership section is deliberately unnamed — add people and photos |
+| `index.html` | Numbers band (40+ GEOs, 13 verticals, 14 languages, Net-15) — confirm these stay accurate |
+| `about.html` | Team section lists functions only, no names — by design |
 | `careers.html` | Open roles — link each to your ATS (they currently go to the contact form) |
 | `contact.html`, footer | Registered office address |
